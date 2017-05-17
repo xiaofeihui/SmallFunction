@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript" src="/wd/jquery-1.7.2.min.js"></script>
+<input type='text' name='jzsj' class="now_time"    />
+		
+<script>
+		(function() {
+			 $('.now_time').val(showTime());
+		})();
+		function showTime(){
+			   function p(s) {
+				   return s < 10 ? '0' + s: s;
+			   }
+			   var myDate = new Date();
+			   var curMonthDays = new Date(myDate.getFullYear(), (myDate.getMonth()+1), 0).getDate();//当月总天数
+			   var year=myDate.getFullYear();
+			   var month=myDate.getMonth()+1;
+			   var date=myDate.getDate();
+			   var h=myDate.getHours();
+			   var m=myDate.getMinutes();
+			   var s=myDate.getSeconds();
+			   date = date+3;
+			   if(date>curMonthDays){
+				   date =date - curMonthDays ;
+				   month = month+1;
+			   }
+			   if(month>12){
+				   month = month-12;
+				   year = year+1;
+			   }
+			   var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s);
+			   return now;
+	   }
+   
+</script>
+		
+		
+</body>
+</html>
